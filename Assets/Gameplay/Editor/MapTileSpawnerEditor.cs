@@ -1,17 +1,17 @@
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(MapTileSpawner))]
-public class MapTileSpawnerEditor : Editor
+[CustomEditor(typeof(TubeSpawner))]
+public class TubeSpawnerEditor : Editor
 {
     public override void OnInspectorGUI()
     {
         base.DrawDefaultInspector();
-        var mapTileSpawner = target as MapTileSpawner;
+        var mapTileSpawner = target as TubeSpawner;
 
         if (GUILayout.Button("Spawn"))
         {
-            mapTileSpawner.Spawn();
+            mapTileSpawner.SpawnTube();
             Debug.Log("Spawning");
         }
     }

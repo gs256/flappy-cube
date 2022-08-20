@@ -3,7 +3,7 @@ using UnityEngine;
 public class MapShift : MonoBehaviour
 {
     [SerializeField]
-    private MapTilePool _mapTilePool;
+    private TubeHolder _tubeHolder;
 
     [Space]
     [SerializeField]
@@ -13,7 +13,7 @@ public class MapShift : MonoBehaviour
     {
         var translation = Vector3.left * _speed * Time.deltaTime;
 
-        foreach (var obj in _mapTilePool.Objects)
+        foreach (var obj in _tubeHolder.Objects)
             obj.transform.Translate(translation);
     }
 }

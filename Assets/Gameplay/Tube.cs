@@ -17,6 +17,11 @@ public class Tube : MonoBehaviour
     [Range(0, 1)]
     private float _spaceWidth;
 
+    [SerializeField]
+    private CubeBounds _bounds;
+
+    public Bounds Bounds => _bounds.Bounds;
+
     public float SpacePosition
     {
         get => _spacePosition;
@@ -30,7 +35,7 @@ public class Tube : MonoBehaviour
     }
 
     public float SpaceWidth
-    { 
+    {
         get => _spaceWidth;
         set
         {
