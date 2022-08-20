@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public event Action<Player> Crashed;
+    public event Action Crashed;
 
     [SerializeField]
     private PlayerCollision _collision;
@@ -19,5 +19,5 @@ public class Player : MonoBehaviour
     }
 
     private void OnCrashed(Collider other)
-        => Crashed?.Invoke(this);
+        => Crashed?.Invoke();
 }
