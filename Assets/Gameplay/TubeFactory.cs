@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class TubeFactory : MonoBehaviour
+public class TubeFactory : MonoBehaviour, ITubeFactory
 {
     [SerializeField]
     private Tube _tubePrefab;
 
-    internal Tube GetTubePrefab()
+    public Tube GetPrefab()
     {
         return _tubePrefab;
     }

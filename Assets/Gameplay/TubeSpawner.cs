@@ -1,40 +1,47 @@
 using UnityEngine;
 
-public class TubeSpawner : MonoBehaviour
+public class TubeSpawner : ITickHandler
 {
-    [SerializeField]
-    private TubeFactory _tubeFactory;
-
-    [SerializeField]
-    private TubeHolder _tubeHolder;
-
-    [SerializeField]
-    private CubeBounds _gameArea;
-
-    [SerializeField]
+    private readonly ITubeFactory _tubeFactory;
+    private readonly TubeHolder _tubeHolder;
+    private readonly CubeBounds _gameArea;
     private float _spaceBetweenTubes;
 
     private readonly TubeSetup _tubeSetup = new TubeSetup();
     private Tube _lastTube;
+    private bool _enabledSpawning;
 
-    private void Start()
+    public TubeSpawner(ITubeFactory tubeFactory, TubeHolder tubeHolder, CubeBounds gameArea, float spaceBetweenTubes)
     {
-        // Spawn();
+        _tubeFactory = tubeFactory;
+        _tubeHolder = tubeHolder;
+        _gameArea = gameArea;
+        _spaceBetweenTubes = spaceBetweenTubes;
     }
 
-    private void Update()
+    public void Tick(float deltaTime)
     {
         if (ShouldSpawnTube())
             SpawnTube();
     }
 
+    public void StartSpawning()
+    {
+        _enabledSpawning = true;
+    }
+
+    public void StopSpawning()
+    {
+        _enabledSpawning = false;
+    }
+
     public void SpawnTube()
     {
-        Tube tubePrefab = _tubeFactory.GetTubePrefab();
+        Tube tubePrefab = _tubeFactory.GetPrefab();
         Bounds bounds = _gameArea.Bounds;
         var tubePosition = new Vector3(bounds.max.x, bounds.center.y, bounds.center.z);
 
-        Tube tube = Instantiate(tubePrefab, tubePosition, Quaternion.identity);
+        Tube tube = GameObject.Instantiate(tubePrefab, tubePosition, Quaternion.identity);
         _tubeSetup.SetupTube(tube);
         _lastTube = tube;
         _tubeHolder.Add(tube);
@@ -42,6 +49,9 @@ public class TubeSpawner : MonoBehaviour
 
     private bool ShouldSpawnTube()
     {
+        if (!_enabledSpawning)
+            return false;
+
         if (!_lastTube)
             return true;
 

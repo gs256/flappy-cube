@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class TubeHolder : MonoBehaviour
+public class TubeHolder
 {
     public event Action<Tube> Added;
 

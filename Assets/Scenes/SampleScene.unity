@@ -402,13 +402,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1335063585}
-  - component: {fileID: 1335063586}
-  - component: {fileID: 1335063587}
-  - component: {fileID: 1335063590}
   - component: {fileID: 1335063588}
-  - component: {fileID: 1335063589}
-  - component: {fileID: 1335063592}
   - component: {fileID: 1335063591}
+  - component: {fileID: 1335063592}
+  - component: {fileID: 1335063586}
   m_Layer: 0
   m_Name: Setup
   m_TagString: Untagged
@@ -439,27 +436,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1335063584}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6799e059a1827b248b91aaa603c90b29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _tubeHolder: {fileID: 1335063589}
-  _speed: 8
---- !u!114 &1335063587
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1335063584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc9df08ba8d8f524eb941d9f83cb26ee, type: 3}
+  m_Script: {fileID: 11500000, guid: 8bebf913ba2dbe219b0971deeb223f01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _tubeFactory: {fileID: 1335063588}
-  _tubeHolder: {fileID: 1335063589}
   _gameArea: {fileID: 755432066}
-  _spaceBetweenTubes: 8
+  _speed: 8
+  _spaceBetweenTubes: 10
 --- !u!114 &1335063588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -473,32 +456,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tubePrefab: {fileID: 2926416472337694670, guid: f4c1a31d29c72a73697812da2d077d91, type: 3}
---- !u!114 &1335063589
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1335063584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16a37f290dd193a4a948403ad1c6ed82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1335063590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1335063584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 214dba7a9205e5d4ba2db27b8d5f4147, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _tubeHolder: {fileID: 1335063589}
-  _gameArea: {fileID: 755432066}
 --- !u!114 &1335063591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -526,6 +483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerSpawner: {fileID: 1335063591}
+  _tubeManager: {fileID: 1335063586}
 --- !u!1 &1706124532
 GameObject:
   m_ObjectHideFlags: 0
